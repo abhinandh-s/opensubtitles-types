@@ -20,6 +20,9 @@ jobs:
       - name: Set up Rust
         uses: dtolnay/rust-toolchain@stable
 
+      - name: Install cargo-insta
+        uses: taiki-e/install-action@cargo-insta
+
       - name: Rust Cache
         uses: Swatinem/rust-cache@v2
 
