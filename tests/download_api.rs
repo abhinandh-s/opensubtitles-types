@@ -3,6 +3,8 @@ use opensubtitles_types::{DownloadRequest, DownloadResponse, DOWNLOAD_URL};
 use reqwest::Client;
 use std::env;
 
+const API_KEY: &str = env!("OPENSUBTITLES_API_KEY");
+
 #[tokio::test]
 async fn test_download_subtitle_live_api() {
     let api_key = env::var("OPENSUBTITLES_API_KEY")
@@ -66,13 +68,13 @@ curl --request POST \
   "file_id": 123
 }'
 */
-pub async fn request_download_link(client: &Client, api_key: &str, file_id: i64) -> Option<DownloadResponse> {
-    let response = client.post("https://api.opensubtitles.com/api/v1/download")
-        .header("Api-Key", api_key)
-        .header("Content-Type", "application/json")
+pub async fn request_download_link(client: &Client,  payload: &DownloadResponse) -> Option<DownloadResponse> {
+    let response = client.post(DOWNLOAD_URL)
         .header("Accept", "application/json")
+        .header("Api-Key", API_KEY)
+        .header("Content-Type", "application/json")
         .header("User-Agent", "opensubtitles-types v1.0.0")
-        .json(&serde_json::json!({ "file_id": file_id }))
+        .json(payload)
         .send().await.ok()?;
 
     response.json().await.ok()
