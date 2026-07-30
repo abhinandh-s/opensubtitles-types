@@ -8,20 +8,36 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-commit:
-    name: Test Rust
+  update-snapshots:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
 
-      - name: Setup Rust
+      - name: Set up Rust
         uses: dtolnay/rust-toolchain@stable
-        
+
       - name: Rust Cache
         uses: Swatinem/rust-cache@v2
 
-      - name: Test Api
-        run: cargo test
+      - name: Install cargo-insta
+        uses: taiki-e/install-action@cargo-insta
 
+      - name: Run tests and accept snapshots
+        env:
+          OPENSUBTITLES_API_KEY: ${{ secrets.OPENSUBTITLES_API_KEY }}
+        run: |
+          # Runs tests and automatically accepts any new/changed snapshots
+          cargo insta test --accept --unreferenced=delete
+
+      - name: Commit and push snapshot changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: auto-update insta snapshots [skip ci]"
+          file_pattern: "tests/snapshots/*.snap"
 
