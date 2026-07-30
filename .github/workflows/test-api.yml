@@ -1,10 +1,10 @@
 name: Test api
 
 on:
-  push:
-    paths:
-      - 'src/**'
-    branches: [ master ]
+  #push:
+    #paths:
+      #- 'src/**'
+    #branches: [ master ]
   workflow_dispatch:
 
 jobs:
