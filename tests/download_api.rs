@@ -1,12 +1,10 @@
 use insta::assert_json_snapshot;
-use opensubtitles_types::{DownloadRequest, DownloadResponse};
+use opensubtitles_types::{DownloadRequest, DownloadResponse, DOWNLOAD_URL};
 use reqwest::Client;
 use std::env;
 
 #[tokio::test]
 async fn test_download_subtitle_live_api() {
-    let url = "https://api.opensubtitles.com/api/v1/download";
-
     let api_key = env::var("OPENSUBTITLES_API_KEY")
         .expect("Missing OPENSUBTITLES_API_KEY environment variable");
     
@@ -18,7 +16,7 @@ async fn test_download_subtitle_live_api() {
     let payload = DownloadRequest::new(7421118);
 
     let response = client
-        .post(url)
+        .post(DOWNLOAD_URL)
         .header("Api-Key", api_key)
        // .header("Authorization", format!("Bearer {}", bearer_token))
         .header("User-Agent", "opensubtitles-types-tester/1.0")
