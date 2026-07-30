@@ -53,7 +53,8 @@ pub struct Attributes {
     pub uploader: Option<Uploader>,
     pub feature_details: Option<FeatureDetails>,
     pub url: Option<String>,
-    pub related_links: Option<Vec<RelatedLink>>,
+    #[serde(default)]
+    pub related_links: Vec<RelatedLink>,
     #[serde(default)]
     pub files: Vec<File>,
 }
