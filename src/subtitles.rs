@@ -4,11 +4,12 @@ use serde::{Serialize, Deserialize};
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Subtitles {
-    pub total_pages: Option<i64>,
-    pub total_count: Option<i64>,
-    pub per_page: Option<i64>,
-    pub page: Option<i64>,
-    pub data: Option<Vec<Data>>,
+    pub total_pages: u64,
+    pub total_count: u64,
+    pub per_page: u64,
+    pub page: u64,
+    #[serde(default)]
+    pub data: Vec<Data>,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
