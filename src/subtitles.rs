@@ -24,7 +24,9 @@ pub struct Data {
 pub struct Attributes {
     pub subtitle_id: String,
     pub language: String,
+    #[serde(default)]
     pub download_count: u64,
+    #[serde(default)]
     pub new_download_count: u64,
     #[serde(default)]
     pub hearing_impaired: bool,
