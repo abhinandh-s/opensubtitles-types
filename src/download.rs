@@ -1,5 +1,6 @@
 use serde::{Serialize, Deserialize};
 
+/// method: POST
 pub const DOWNLOAD_URL: &str = "https://api.opensubtitles.com/api/v1/download";
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
