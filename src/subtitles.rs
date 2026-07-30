@@ -33,7 +33,7 @@ pub struct Attributes {
     #[serde(default)]
     pub hd: bool,
     pub fps: Option<f64>,
-    pub votes: Option<i64>,
+    pub votes: Option<u64>,
     pub ratings: Option<f64>,
     #[serde(default)]
     pub from_trusted: bool,
@@ -49,8 +49,8 @@ pub struct Attributes {
     pub machine_translated: bool,
     pub release: Option<String>,
     pub comments: Option<String>,
-    pub legacy_subtitle_id: Option<i64>,
-    pub legacy_uploader_id: Option<i64>,
+    pub legacy_subtitle_id: Option<u64>,
+    pub legacy_uploader_id: Option<u64>,
     pub uploader: Uploader,
     pub feature_details: FeatureDetails,
     pub url: String,
@@ -93,7 +93,7 @@ pub struct RelatedLink {
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Uploader {
-    pub uploader_id: Option<i64>, // What about Anonymous uploader, let keep it wrapped in Option
+    pub uploader_id: Option<u64>, // What about Anonymous uploader, let keep it wrapped in Option
     pub name: String,
     pub rank: String,
 }
