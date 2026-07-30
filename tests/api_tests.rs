@@ -25,10 +25,18 @@ async fn test_fetch_subtitles_live_api() {
     );
 
     // validates struct matches the API schema
-    let subtitles: Subtitles = response
-        .json()
-        .await
-        .expect("Failed to deserialize JSON into Subtitles struct");
+    let raw_json = response.text().await.expect("Failed to read response text");
+
+    // Setup a JSON deserializer
+    let mut deserializer = serde_json::Deserializer::from_str(&raw_json);
+
+    // Attempt to deserialize, and if it fails, capture the exact path
+    let subtitles: Subtitles = match serde_path_to_error::deserialize(&mut deserializer) {
+        Ok(data) => data,
+        Err(err) => {
+             panic!("Deserialization failed at path: {}\nError: {}", err.path(), err);
+        }
+    };
 
     // Snapshot the full output so you know when the API schema/data changes.
     // 
