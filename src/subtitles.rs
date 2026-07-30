@@ -3,19 +3,19 @@
 serde::{Serialize, Deserialize};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct Welcome {
+pub struct Subtitles {
     pub total_pages: i64,
     pub total_count: i64,
     pub per_page: i64,
     pub page: i64,
-    pub data: Vec<Datum>,
+    pub data: Vec<Data>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct Datum {
+pub struct Data {
     pub id: String,
     #[serde(rename = "type")]
-    pub datum_type: String,
+    pub data_type: String,
     pub attributes: Attributes,
 }
 
