@@ -22,22 +22,28 @@ pub struct Data {
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Attributes {
-    pub subtitle_id: Option<String>,
-    pub language: Option<String>,
-    pub download_count: Option<i64>,
-    pub new_download_count: Option<i64>,
-    pub hearing_impaired: Option<bool>,
-    pub hd: Option<bool>,
+    pub subtitle_id: String,
+    pub language: String,
+    pub download_count: u64,
+    pub new_download_count: u64,
+    #[serde(default)]
+    pub hearing_impaired: bool,
+    #[serde(default)]
+    pub hd: bool,
     pub fps: Option<f64>,
     pub votes: Option<i64>,
     pub ratings: Option<f64>,
-    pub from_trusted: Option<bool>,
-    pub foreign_parts_only: Option<bool>,
+    #[serde(default)]
+    pub from_trusted: bool,
+    #[serde(default)]
+    pub foreign_parts_only: bool,
     pub upload_date: Option<String>,
-    pub ai_translated: Option<bool>,
+    #[serde(default)]
+    pub ai_translated: bool,
     pub nb_cd: Option<i64>,
     pub slug: Option<String>,
-    pub machine_translated: Option<bool>,
+    #[serde(default)]
+    pub machine_translated: bool,
     pub release: Option<String>,
     pub comments: Option<String>,
     pub legacy_subtitle_id: Option<i64>,
