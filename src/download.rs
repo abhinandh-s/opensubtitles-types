@@ -1,5 +1,7 @@
 use serde::{Serialize, Deserialize};
 
+pub const DOWNLOAD_URL: &str = "https://api.opensubtitles.com/api/v1/download";
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct DownloadRequest {
     pub file_id: u64, // Required
