@@ -60,19 +60,19 @@ pub struct Attributes {
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct FeatureDetails {
-    pub feature_id: Option<i64>,
-    pub feature_type: Option<String>,
-    pub year: Option<i64>,
-    pub title: Option<String>,
-    pub movie_name: Option<String>,
-    pub imdb_id: Option<i64>,
-    pub tmdb_id: Option<i64>,
-    pub season_number: Option<i64>,
-    pub episode_number: Option<i64>,
-    pub parent_imdb_id: Option<i64>,
+    pub feature_id: u64,
+    pub feature_type: String,
+    pub year: u64,
+    pub title: String,
+    pub movie_name: String,
+    pub imdb_id: Option<u64>,
+    pub tmdb_id: Option<u64>,
+    pub season_number: Option<u64>,
+    pub episode_number: Option<u64>,
+    pub parent_imdb_id: Option<u64>,
     pub parent_title: Option<String>,
-    pub parent_tmdb_id: Option<i64>,
-    pub parent_feature_id: Option<i64>,
+    pub parent_tmdb_id: Option<u64>,
+    pub parent_feature_id: Option<u64>,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
