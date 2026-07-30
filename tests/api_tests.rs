@@ -43,7 +43,8 @@ async fn test_fetch_subtitles_live_api() {
     // WARNING: Since we are hitting a live API, `download_count` and `new_download_count` 
     // will change every day, causing `cargo test` to fail CI.
     assert_json_snapshot!(subtitles, {
-        ".data[].attributes.download_count" => insta::dynamic_redaction(|_, _| "REDACTED"),
+        ".data[].attributes.img_url" => insta::dynamic_redaction(|_, _| "REDACTED"),
+        ".data[].attributes.download_count" => insta::dynamic_redaction(|_, _| "REDACTED"),      
         ".data[].attributes.new_download_count" => insta::dynamic_redaction(|_, _| "REDACTED"),
     });
 }
