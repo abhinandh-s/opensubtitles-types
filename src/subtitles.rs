@@ -8,14 +8,14 @@ pub struct Subtitles {
     pub total_count: Option<i64>,
     pub per_page: Option<i64>,
     pub page: Option<i64>,
-    pub data: Option<Vec<Datum>>,
+    pub data: Option<Vec<Data>>,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
-pub struct Datum {
+pub struct Data {
     pub id: Option<String>,
     #[serde(rename = "type")]
-    pub datum_type: Option<String>,
+    pub data_type: Option<String>,
     pub attributes: Option<Attributes>,
 }
 
