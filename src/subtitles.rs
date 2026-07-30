@@ -39,20 +39,21 @@ pub struct Attributes {
     pub from_trusted: bool,
     #[serde(default)]
     pub foreign_parts_only: bool,
-    pub upload_date: Option<String>,
+    pub upload_date: String,
     #[serde(default)]
     pub ai_translated: bool,
-    pub nb_cd: Option<i64>,
-    pub slug: Option<String>,
+    #[serde(default)]
+    pub nb_cd: u64,
+    pub slug: String,
     #[serde(default)]
     pub machine_translated: bool,
     pub release: Option<String>,
     pub comments: Option<String>,
     pub legacy_subtitle_id: Option<i64>,
     pub legacy_uploader_id: Option<i64>,
-    pub uploader: Option<Uploader>,
-    pub feature_details: Option<FeatureDetails>,
-    pub url: Option<String>,
+    pub uploader: Uploader,
+    pub feature_details: FeatureDetails,
+    pub url: String,
     #[serde(default)]
     pub related_links: Vec<RelatedLink>,
     #[serde(default)]
