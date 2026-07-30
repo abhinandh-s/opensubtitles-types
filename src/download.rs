@@ -23,6 +23,20 @@ pub struct DownloadRequest {
     pub force_download: Option<bool>,
 }
 
+impl DownloadRequest {
+    pub fn new(file_id: u64) -> Self {
+        Self {
+            file_id,
+            sub_format: None,
+            file_name: None,
+            in_fps: None,
+            out_fps: None,
+            timeshift: None,
+            force_download: None,
+        }
+    }
+}
+
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct DownloadResponse {
     pub link: String,
