@@ -1,6 +1,8 @@
 name: Test
 
 on:
+  schedule:
+    - cron: "10 10 * * *" # around ~3:40pm in India
   push:
     #paths:
       #- 'src/**'
