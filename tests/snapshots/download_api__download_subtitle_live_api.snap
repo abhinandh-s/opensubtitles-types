@@ -1,0 +1,13 @@
+---
+source: tests/download_api.rs
+expression: download_resp
+---
+{
+  "link": "REDACTED_LINK",
+  "file_name": "viper s01e04 Safe as Houses.srt",
+  "requests": "REDACTED_QUOTA",
+  "remaining": "REDACTED_QUOTA",
+  "message": "REDACTED_MESSAGE",
+  "reset_time": "REDACTED_TIME",
+  "reset_time_utc": "REDACTED_TIME"
+}
