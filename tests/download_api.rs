@@ -57,12 +57,23 @@ async fn test_download_subtitle_live_api() {
     });
 }
 
+/*
+curl --request POST \
+  --url https://api.opensubtitles.com/api/v1/download \
+  --header 'Accept: application/json' \
+  --header 'Authorization: Bearer 123' \
+  --header 'Content-Type: application/json' \
+  --header 'User-Agent: ' \
+  --data '{
+  "file_id": 123
+}'
+*/
 pub async fn request_download_link(client: &Client, api_key: &str, file_id: i64) -> Option<DownloadResponse> {
     let response = client.post("https://api.opensubtitles.com/api/v1/download")
         .header("Api-Key", api_key)
         .header("Content-Type", "application/json")
         .header("Accept", "application/json")
-        .header("User-Agent", "MyTelegramSubBot v1.0.0")
+        .header("User-Agent", "opensubtitles-types v1.0.0")
         .json(&serde_json::json!({ "file_id": file_id }))
         .send().await.ok()?;
 
