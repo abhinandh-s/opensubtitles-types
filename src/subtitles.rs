@@ -1,6 +1,6 @@
 //! GET: https://api.opensubtitles.com/api/v1/subtitles
 
-serde::{Serialize, Deserialize};
+use serde::{Serialize, Deserialize};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Subtitles {
