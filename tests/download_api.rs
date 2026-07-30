@@ -57,7 +57,7 @@ async fn test_download_subtitle_live_api() {
     });
 }
 
-pub async fn request_download_link(client: &Client, api_key: &str, file_id: i64) -> Option<OSDownloadResponse> {
+pub async fn request_download_link(client: &Client, api_key: &str, file_id: i64) -> Option<DownloadResponse> {
     let response = client.post("https://api.opensubtitles.com/api/v1/download")
         .header("Api-Key", api_key)
         .header("Content-Type", "application/json")
