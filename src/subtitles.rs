@@ -14,10 +14,10 @@ pub struct Subtitles {
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Data {
-    pub id: Option<String>,
+    pub id: String,
     #[serde(rename = "type")]
-    pub data_type: Option<String>,
-    pub attributes: Option<Attributes>,
+    pub data_type: String,
+    pub attributes: Attributes,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
