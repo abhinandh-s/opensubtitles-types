@@ -68,7 +68,7 @@ curl --request POST \
   "file_id": 123
 }'
 */
-pub async fn request_download_link(client: &Client,  payload: &DownloadResponse) -> Option<DownloadResponse> {
+pub async fn request_download(client: &Client,  payload: &DownloadResponse) -> Option<DownloadResponse> {
     let response = client.post(DOWNLOAD_URL)
         .header("Accept", "application/json")
         .header("Api-Key", API_KEY)
