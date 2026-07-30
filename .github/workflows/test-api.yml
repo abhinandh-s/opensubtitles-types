@@ -28,6 +28,6 @@ jobs:
           OPENSUBTITLES_API_KEY: ${{ secrets.OPENSUBTITLES_API_KEY }}
         run: |
           ls
-          cargo test
+          cargo insta test
 
 
