@@ -54,7 +54,8 @@ pub struct Attributes {
     pub feature_details: Option<FeatureDetails>,
     pub url: Option<String>,
     pub related_links: Option<Vec<RelatedLink>>,
-    pub files: Option<Vec<File>>,
+    #[serde(default)]
+    pub files: Vec<File>,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -76,21 +77,21 @@ pub struct FeatureDetails {
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct File {
-    pub file_id: Option<i64>,
-    pub cd_number: Option<i64>,
-    pub file_name: Option<String>,
+    pub file_id: u64,
+    pub cd_number: u64,
+    pub file_name: String,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct RelatedLink {
-    pub label: Option<String>,
-    pub url: Option<String>,
-    pub img_url: Option<String>,
+    pub label: String,
+    pub url: String,
+    pub img_url: String,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Uploader {
-    pub uploader_id: Option<i64>,
-    pub name: Option<String>,
-    pub rank: Option<String>,
+    pub uploader_id: Option<i64>, // What about Anonymous uploader, let keep it wrapped in Option
+    pub name: String,
+    pub rank: String,
 }
