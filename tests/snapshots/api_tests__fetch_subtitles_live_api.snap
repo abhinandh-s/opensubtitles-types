@@ -42,7 +42,7 @@ expression: subtitles
           "feature_type": "Movie",
           "year": 1999,
           "title": "The Matrix",
-          "movie_name": "1999 - The Matrix",
+          "movie_name": "1999 - Matrix",
           "imdb_id": 133093,
           "tmdb_id": 603,
           "season_number": null,
