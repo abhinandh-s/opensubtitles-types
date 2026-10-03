@@ -321,7 +321,7 @@ expression: subtitles
         "language": "en",
         "download_count": "REDACTED",
         "new_download_count": "REDACTED",
-        "hearing_impaired": false,
+        "hearing_impaired": true,
         "hd": true,
         "fps": 0.0,
         "votes": 0,
