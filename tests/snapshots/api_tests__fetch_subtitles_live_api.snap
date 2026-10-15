@@ -401,14 +401,14 @@ expression: subtitles
         "uploader": {
           "uploader_id": 237619,
           "name": "fried_yoda",
-          "rank": "Gold member"
+          "rank": "Gold Member"
         },
         "feature_details": {
           "feature_id": 646193,
           "feature_type": "Movie",
           "year": 1999,
           "title": "The Matrix",
-          "movie_name": "1999 - マトリックス",
+          "movie_name": "1999 - The Matrix",
           "imdb_id": 133093,
           "tmdb_id": 603,
           "season_number": null,
